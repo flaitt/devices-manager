@@ -106,3 +106,7 @@ dist
 .terraform
 
 *.tfscate.backup
+
+.byebug_history
+
+Gemfile.lock
