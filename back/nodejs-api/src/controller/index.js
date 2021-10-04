@@ -1,14 +1,18 @@
 import {
-    addDevice
+    addDevice,
+    addCategory
 } from '../usecases'
 
 import makePostDevice from './post-device'
+import makePostCategory from './post-category'
 
 const postDevice = makePostDevice({ addDevice })
+const postCategory = makePostCategory({ addCategory })
 
 const deviceManagerController = Object.freeze({
-    postDevice
+    postDevice,
+    postCategory
 })
 
 export default deviceManagerController;
-export { postDevice }
+export { postDevice, postCategory }
