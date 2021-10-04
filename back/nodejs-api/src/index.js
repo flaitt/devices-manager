@@ -2,7 +2,8 @@ import {
     postDevice,
     postCategory,
     getDevices,
-    getCategories
+    getCategories,
+    deleteDevice
 } from './controller'
 
 var bodyParser = require('body-parser')
@@ -46,6 +47,16 @@ app.get('/devices', jsonParser, (req, res) => {
 
 app.get('/categories', jsonParser, (req, res) => { 
     getCategories().then(httpResponse => {
+        res.type('json');
+        res.status(httpResponse.statusCode)
+        res.send(httpResponse.body)
+    }).catch(error => {
+        res.status(500).send({ error: 'An unkown error occurred.' })
+    })
+})
+
+app.delete('/device', jsonParser, (req, res) => { 
+    deleteDevice(req.body).then(httpResponse => {
         res.type('json');
         res.status(httpResponse.statusCode)
         res.send(httpResponse.body)
