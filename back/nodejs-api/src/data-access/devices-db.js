@@ -26,7 +26,8 @@ export default function makeDeviceManagerDb ({ makeDb }) {
     }
     async function insertCategory(name){
         const dbConnection = await makeDb();
-        const result = await dbConnection.query(`INSERT INTO categories VALUES(LAST_INSERT_ID(), "${name}");`)
+        const lastInsertId = await dbConnection.query(`SELECT MAX(id) as max FROM categories`)
+        const result = await dbConnection.query(`INSERT INTO categories VALUES(${JSON.parse(JSON.stringify(lastInsertId))[0][0].max + 1}, "${name}");`)
         return result;
     }
     async function removeDeviceById(id){
