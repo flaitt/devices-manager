@@ -20,7 +20,8 @@ export default function makeDeviceManagerDb ({ makeDb }) {
     }
     async function insertDevice(categoryId, color, partNumber){
         const dbConnection = await makeDb();
-        const result = await dbConnection.query(`INSERT INTO devices VALUES(LAST_INSERT_ID(), "${categoryId}", "${color}", ${partNumber});`)
+        const lastInsertId = await dbConnection.query(`SELECT MAX(id) as max FROM devices`)
+        const result = await dbConnection.query(`INSERT INTO devices VALUES(${JSON.parse(JSON.stringify(lastInsertId))[0][0].max + 1}, "${categoryId}", "${color}", ${partNumber});`)
         return result;
     }
     async function insertCategory(name){

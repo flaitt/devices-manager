@@ -1,27 +1,26 @@
-import devicesManagerDb from './data-access'
+import {
+    postDevice
+} from './controller'
+
+var bodyParser = require('body-parser')
+
+var jsonParser = bodyParser.json()
 
 const express = require('express')
 const app = express()
 const port = 3000
 
 
-app.get('/', (req, res) => {
-    res.send('Hello')
+app.post('/device', jsonParser, (req, res) => { 
+    postDevice(req.body).then(httpResponse => {
+        res.type('json');
+        res.status(httpResponse.statusCode)
+        res.send(httpResponse.body)
+    }).catch(error => {
+        res.status(500).send({ error: 'An unkown error occurred.' })
+    })
 })
 
 app.listen(port, () => {
-    console.log('Começou!');
-    
-    try {
-        getDevices()
-    } catch (error) {
-        console.log('deu erro', error)
-    }
+    console.log('Server listing on port: ', port);
 })
-
-async function getDevices() { 
-    console.log('tentando encontrar dispositivos')
-    const result = await devicesManagerDb.findAllDevices()
-    console.log('result', result);
-    return result;
-};
