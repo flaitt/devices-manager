@@ -16,6 +16,18 @@ import { DevicesComponent } from './views/devices/devices.component';
 import { MatCardModule } from '@angular/material/card';
 import { CategoriesComponent } from './views/categories/categories.component';
 import { DevicesCreateComponent } from './components/devices/devices-create/devices-create.component';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DevicesReadComponent } from './components/devices/devices-read/devices-read.component';
+import { DevicesRead2Component } from './components/devices/devices-read2/devices-read2.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { CategoriesReadComponent } from './components/categories/categories-read/categories-read.component';
+// import from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -24,7 +36,10 @@ import { DevicesCreateComponent } from './components/devices/devices-create/devi
     NavComponent,
     DevicesComponent,
     CategoriesComponent,
-    DevicesCreateComponent
+    DevicesCreateComponent,
+    DevicesReadComponent,
+    DevicesRead2Component,
+    CategoriesReadComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +48,15 @@ import { DevicesCreateComponent } from './components/devices/devices-create/devi
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

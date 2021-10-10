@@ -1,1 +1,32 @@
-<p>devices-create works!</p>
+<mat-card>
+    <mat-card-title>Novo Dispositivo</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Part Number"
+              [(ngModel)]="device.part_number"
+              name="partNumber"
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Color"
+              [(ngModel)]="device.color"
+              name="color"
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Categoria"
+              [(ngModel)]="device.category_id"
+              name="categoryId"
+            >
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="createDevice()">
+        Criar Dispositivo
+    </button>
+</mat-card>
