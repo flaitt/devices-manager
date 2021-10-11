@@ -22,7 +22,6 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DevicesReadComponent } from './components/devices/devices-read/devices-read.component';
-import { DevicesRead2Component } from './components/devices/devices-read2/devices-read2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -41,7 +40,6 @@ import { MatSelectModule } from '@angular/material/select';
     CategoriesComponent,
     DevicesCreateComponent,
     DevicesReadComponent,
-    DevicesRead2Component,
     CategoriesReadComponent,
     CategoriesCreateComponent
   ],

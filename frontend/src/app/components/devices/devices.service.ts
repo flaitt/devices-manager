@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from '../categories/category.model';
 import { Device } from './device.model';
+import { environment } from 'src/environments/environment';'../../../environments/environment';
+
+const baseUrl = environment.URL_BACKEND || 'http://localhost:3003';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DevicesService {
 
-  baseUrl = 'http://localhost:3000';
   options = 
       {
         'Content-Type':'application/json',
@@ -23,7 +25,7 @@ export class DevicesService {
 
   create<T>(device: Device, category_id: any) : Observable<T> {
     console.log("creating device with", device)
-    return this.http.post<T>(`${this.baseUrl}/device`, {
+    return this.http.post<T>(`${baseUrl}/device`, {
       categoryId: category_id,
       color: device.color,
       partNumber: device.part_number
@@ -31,11 +33,11 @@ export class DevicesService {
   }
 
   read(): Observable<Device[]> {
-    return this.http.get<Device[]>(`${this.baseUrl}/devices`, {headers: this.options})
+    return this.http.get<Device[]>(`${baseUrl}/devices`, {headers: this.options})
   }
 
   delete<T>(device: Device) : Observable<T> {
-    return this.http.delete<T>(`${this.baseUrl}/device`, {
+    return this.http.delete<T>(`${baseUrl}/device`, {
       headers: this.options,
       body: {
         id: device.id
