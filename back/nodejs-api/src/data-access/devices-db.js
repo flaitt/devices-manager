@@ -10,7 +10,11 @@ export default function makeDeviceManagerDb ({ makeDb }) {
     async function findAllDevices(){
         console.log('finding all devices')
         const dbConnection = await makeDb();
-        const [devices] = await dbConnection.query('SELECT * FROM devices')
+        const [devices] = await dbConnection.query(`
+            SELECT d.id, color, part_number, name as category_name
+            FROM devices as d
+            LEFT JOIN categories as c
+            ON d.category_id = c.id`)
         return JSON.parse(JSON.stringify(devices));
     }
     async function findAllCategories(){

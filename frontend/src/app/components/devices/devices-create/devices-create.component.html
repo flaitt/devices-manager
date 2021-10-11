@@ -7,6 +7,7 @@
               placeholder="Part Number"
               [(ngModel)]="device.part_number"
               name="partNumber"
+              onkeypress="return /^[0-9]d*$/.test(event.key)"
             >
         </mat-form-field>
         <mat-form-field>
@@ -15,15 +16,24 @@
               placeholder="Color"
               [(ngModel)]="device.color"
               name="color"
+              maxlength="16"
+              type="text"
+              onkeypress="return /[a-z]/i.test(event.key)"
             >
         </mat-form-field>
         <mat-form-field>
-            <input
-              matInput
-              placeholder="Categoria"
-              [(ngModel)]="device.category_id"
-              name="categoryId"
-            >
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="categorySelected.name" name="first">
+              <mat-option
+                *ngFor="let category of categories"
+                [value]=category.name
+              >
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+            <!-- placeholder="Categoria"
+            [(ngModel)]="device.category_name"
+            name="categoryId" -->
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="createDevice()">

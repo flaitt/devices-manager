@@ -12,7 +12,7 @@ export class DevicesReadComponent implements OnInit {
 
   devices: Device[] = [];
   device : Device = {
-    category_id: "",
+    category_name: "",
     color: "",
     part_number: 0
   }

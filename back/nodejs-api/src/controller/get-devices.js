@@ -7,7 +7,7 @@ export default function makeGetDevices({ findDevices }) {
                     'Content-Type': 'application/json',
                 },
                 statusCode: 200,
-                body: { devices }
+                body: devices
             }
         } catch (error) {
             console.log('Get devices error', error);

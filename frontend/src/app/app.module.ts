@@ -27,7 +27,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { CategoriesReadComponent } from './components/categories/categories-read/categories-read.component';
-// import from '@angular/material/table'
+import { CategoriesCreateComponent } from './components/categories/categories-create/categories-create.component';
+
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { CategoriesReadComponent } from './components/categories/categories-read
     DevicesCreateComponent,
     DevicesReadComponent,
     DevicesRead2Component,
-    CategoriesReadComponent
+    CategoriesReadComponent,
+    CategoriesCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { CategoriesReadComponent } from './components/categories/categories-read
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

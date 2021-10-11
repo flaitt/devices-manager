@@ -25,6 +25,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
     "@babel/preset-env": "^7.15.6",
     "babel-jest": "^24.9.0",
+    "cors": "^2.8.5",
     "jest": "^24.3.1",
     "rimraf": "^2.6.3"
   }

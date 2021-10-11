@@ -7,7 +7,7 @@ export default function makeGetCategories({ findCategories }) {
                     'Content-Type': 'application/json',
                 },
                 statusCode: 200,
-                body: { categories }
+                body: categories
             }
         } catch (error) {
             console.log('Get categories error', error);

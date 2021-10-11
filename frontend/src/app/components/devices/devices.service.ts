@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Category } from '../categories/category.model';
 import { Device } from './device.model';
 
 @Injectable({
@@ -15,12 +16,15 @@ export class DevicesService {
         'Access-Control-Allow-Origin': '*',
         'supertest': 'que ?'
       }
+
+  category: Category[] = []
   
   constructor(private http: HttpClient) { }
 
-  create<T>(device: Device) : Observable<T> {
+  create<T>(device: Device, category_id: any) : Observable<T> {
+    console.log("creating device with", device)
     return this.http.post<T>(`${this.baseUrl}/device`, {
-      categoryId: device.category_id,
+      categoryId: category_id,
       color: device.color,
       partNumber: device.part_number
     }, {headers: this.options})
