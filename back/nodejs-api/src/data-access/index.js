@@ -1,5 +1,7 @@
 import makeDeviceManagerDb from "./devices-db";
 
+const urlDb = process.env['URL_DB'] || "mysql://username:password@localhost:3306/devices_manager";
+
 export async function makeDb(){
     if(global.connection && global.connection.state !== 'disconnected'){
         console.log("Conexão já existente")
@@ -12,7 +14,8 @@ export async function makeDb(){
     }
 
     const mysql = require("mysql2/promise");
-    const connection = await mysql.createConnection("mysql://username:password@database-1.cc14cf7siydh.us-east-2.rds.amazonaws.com:3306/devices_manager");
+    // console.log("urldb:", urlDb)
+    const connection = await mysql.createConnection(urlDb);
     // const connection = await mysql.createConnection("mysql://root:MySql2019!@localhost:3306/devices_manager");
     console.log("Conectou no MySQL!");
     global.connection = connection;
