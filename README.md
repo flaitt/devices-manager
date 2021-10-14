@@ -13,7 +13,7 @@ Para subir a aplicação deve-se rodar em `/back/nodejse-api`
 
 ```URL_DB=mysql://username:password@databasehost:3306/name_of_your_tavble npm start ```
 
-## Run the tests
+## Run the tests #WIP
 
 Para rodar os testes de componente, caminhe para tests/components e rode o comando:
 
